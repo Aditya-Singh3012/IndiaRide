@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <title>EV Charging Stations</title>
+    <style>
+        /* Previous styles remain the same */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #292828;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-logo a {
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+
+        .sign-up, .login {
+            background-color: #000000;
+            border-radius: 5px;
+            padding: 8px 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Updated search section styles */
+        .search-section {
+            background-color: #1a1a1a;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        .search-button {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Map section styles */
+        .map-section {
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Rest of the previous styles */
+        .station-section {
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Previous card and footer styles remain the same */
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 20px;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .card-address {
+            color: #808080;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .availability {
+            color: #4CAF50;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .footer {
+            background-color: #1a2433;
+            color: #ffffff;
+            padding: 60px 0 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #c0c0c0;
+            line-height: 1.6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #2d3748;
+            color: #c0c0c0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary">
+    <div class="navbar-logo">
+        <a href="#">IndiaRide</a>
+    </div>
+    <div class="navbar-links">
+        <a href="./index.html">Home</a>
+        <a href="./vehicles.html">Vehicles</a>
+        <a href="./ev_charging.html">EV Charging</a>
+        <a href="./about_us.html">About</a>
+        <a href="./contact_us.html">Contact Us</a>
+        <a href="./register.html">Register Vehicle</a>
+        <a href="./login.html" class="login">Login</a>
+        <a href="./sign_up.html" class="sign-up">Sign Up</a>
+    </div>
+</nav>
+
+<div class="search-section">
+    <div class="search-bar">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search for charging stations...">
+        <button class="search-button" id="searchButton">Search</button>
+    </div>
+</div>
+
+<div class="station-section">
+    <h2 class="section-title">EV Charging Stations</h2>
+
+    <div class="map-section">
+        <div class="map-container">
+            <iframe id="map"
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d124362.50618814469!2d80.16956517219283!3d13.078366709827622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scharging%20stations%20in%20chennai!5e0!3m2!1sen!2sin!4v1739118883945!5m2!1sen!2sin"
+                    allowfullscreen=""
+                    loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="card-grid" id="stationGrid"></div>
+</div>
+
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About IndiaRide</h3>
+            <p>IndiaRide is your trusted partner for exploring the diverse landscapes of India. We offer a wide range of vehicles and charging solutions.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="quick-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./vehicles.html">Vehicles</a></li>
+                <li><a href="./about_us.html">About Us</a></li>
+                <li><a href="./contact_us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p>Email: info@indiaride.com</p>
+            <p>Phone: +91 1234567890</p>
+            <p>Address: 123 Main Street, Mumbai, India</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 IndiaRide. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const stations = [
+        {
+            name: "Central Delhi Charging Hub",
+            address: "123 Connaught Place, New Delhi",
+            available: 3,
+            total: 5
+        },
+        {
+            name: "Mumbai Electric Station",
+            address: "456 Marine Drive, Mumbai",
+            available: 2,
+            total: 4
+        },
+        {
+            name: "Bangalore Tech Park Chargers",
+            address: "789 Electronics City, Bangalore",
+            available: 1,
+            total: 3
+        },
+        {
+            name: "Kolkata Green Charge",
+            address: "101 Park Street, Kolkata",
+            available: 4,
+            total: 6
+        },
+        {
+            name: "Chennai Coastal Charging",
+            address: "202 Marina Beach Road, Chennai",
+            available: 2,
+            total: 4
+        }
+    ];
+
+    function getStatusColor(available, total) {
+        if (available === 0) return '#ff4444';
+        if (available < total / 2) return '#ffbb33';
+        return '#4CAF50';
+    }
+
+    function createStationCard(station) {
+        const statusColor = getStatusColor(station.available, station.total);
+        return `
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">${station.name}</h3>
+                        <div class="card-address">${station.address}</div>
+                        <div class="availability">
+                            <span class="status-indicator" style="background-color: ${statusColor}"></span>
+                            Available: ${station.available} / ${station.total} charging points
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function updateStations(searchQuery = '') {
+        const stationGrid = document.getElementById('stationGrid');
+        const filteredStations = stations.filter(station =>
+            station.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            station.address.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        stationGrid.innerHTML = filteredStations.map(station =>
+            createStationCard(station)
+        ).join('');
+    }
+
+    // Initial render
+    updateStations();
+
+    // Search functionality
+    document.getElementById('searchButton').addEventListener('click', () => {
+        const searchQuery = document.getElementById('searchInput').value;
+        updateStations(searchQuery);
+    });
+
+    // Also enable search on Enter key
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const searchQuery = e.target.value;
+            updateStations(searchQuery);
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
