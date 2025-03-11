@@ -24,10 +24,10 @@ IndiaRide is a modern transportation platform designed specifically for the Indi
 ### Installation
 
 1. Clone the repository:
-
+```
 git clone https://github.com/yourorganization/indiaride.git
 cd indiaride
-
+```
 
 2. Install server dependencies:
 
