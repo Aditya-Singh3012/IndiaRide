@@ -30,28 +30,28 @@ cd indiaride
 ```
 
 2. Install server dependencies:
-
+```
 cd server
 npm install
-
+```
 
 3. Install client dependencies:
-
+```
 cd ../client
 npm install
-
+```
 
 4. Configure environment variables:
    - Create .env files in both server and client directories
    - Add required API keys and configuration variables
 
 5. Start the development server:
-
+```
 npm run dev
-
+```
 
 ## Project Structure
-
+```
 indiaride/
 ├── server/                 # Backend Node.js/Express server
 │   ├── controllers/        # Request handlers
@@ -64,7 +64,7 @@ indiaride/
 │   ├── navigation/         # Navigation configuration
 │   └── assets/             # Images and other static assets
 └── docs/                   # Documentation files
-
+```
 
 ## API Documentation
 The API documentation is available at /api/docs when running the development server. It includes endpoints for:
