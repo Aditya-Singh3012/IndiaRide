@@ -53,17 +53,17 @@ npm run dev
 ## Project Structure
 
 indiaride/
-├── server/             # Backend Node.js/Express server
-│   ├── controllers/    # Request handlers
-│   ├── models/         # Database models
-│   ├── routes/         # API routes
-│   └── middleware/     # Custom middleware
-├── client/             # Frontend React Native application
-│   ├── components/     # Reusable UI components
-│   ├── screens/        # App screens
-│   ├── navigation/     # Navigation configuration
-│   └── assets/         # Images and other static assets
-└── docs/               # Documentation files
+├── server/                 # Backend Node.js/Express server
+│   ├── controllers/        # Request handlers
+│   ├── models/             # Database models
+│   ├── routes/             # API routes
+│   └── middleware/         # Custom middleware
+├── client/                 # Frontend React Native application
+│   ├── components/         # Reusable UI components
+│   ├── screens/            # App screens
+│   ├── navigation/         # Navigation configuration
+│   └── assets/             # Images and other static assets
+└── docs/                   # Documentation files
 
 
 ## API Documentation
